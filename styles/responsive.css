@@ -18,3 +18,17 @@
         align-items: center;
     }
 }
+
+@media (min-width: 1440px){
+    #page-home {
+        background-position-x: 40vw;
+    }
+
+}
+
+@media (min-heigth: 630px){
+    #page-home {
+        background-position-y: 100px;
+    }
+
+}
