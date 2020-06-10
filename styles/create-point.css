@@ -130,3 +130,13 @@ form button:hover{
     align-items: center;
     color: var(--title-color);
 }
+
+.items-grid li.selecionado{
+    background: #e1faec;
+    border: 2px solid #34cb79;
+}
+
+.items-grid li img,
+.items-grid li span{
+    pointer-events: none;
+}

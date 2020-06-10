@@ -45,3 +45,16 @@ function getcities(event){
 document
     .querySelector("select[name=uf]")
     .addEventListener("change", getcities )
+
+ // itens de coleta
+ // pegar todos os li´s
+
+ const itemsParaColetar = document.querySelectorAll(".items-grid li")
+
+ for (const item of itemsParaColetar){
+     item.addEventListener("click", handleSelectedItem)
+ }
+ 
+ function handleSelectedItem(event){
+     console.log(event.target)
+ }
