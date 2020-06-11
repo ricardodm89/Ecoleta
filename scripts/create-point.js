@@ -56,6 +56,7 @@ document
      item.addEventListener("click", handleSelectedItem)
  }
 
+const ItensColetados = document.querySelector("input[name=itens]")
  
 let selectedItems = []
 
@@ -85,14 +86,12 @@ let selectedItems = []
 
             selectedItems = itensFiltrados
      }else{
-            // se não estiver selecionado, adicionar à seleção
+            // se não estiver selecionado, adicionar à seleção.
             selectedItems.push(itemId)
 
      }
 
-     console.log(selectedItems)
-
      // atualizar o campo escondido(input:hidden) com os itens selecionados
-
+     ItensColetados.value = selectedItems
 
  }
