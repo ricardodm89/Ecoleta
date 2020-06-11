@@ -49,12 +49,20 @@ document
  // itens de coleta
  // pegar todos os li´s
 
- const itemsParaColetar = document.querySelectorAll(".items-grid li")
+ const itensParaColetar = document.querySelectorAll(".items-grid li")
 
- for (const item of itemsParaColetar){
+ for (const item of itensParaColetar){
      item.addEventListener("click", handleSelectedItem)
  }
  
  function handleSelectedItem(event){
-     console.log(event.target)
+
+    const itemLi = event.target
+    //adicionar ou remover uma data com js
+    itemLi.classList.toggle("selecionado")
+
+
+     const itemId = event.target.dataset.id
+     //console.log(event.target.dataset.id)
+
  }
