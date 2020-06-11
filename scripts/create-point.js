@@ -55,16 +55,17 @@ document
  for (const item of itensParaColetar){
      item.addEventListener("click", handleSelectedItem)
  }
+
  
 let selectedItems = []
 
  function handleSelectedItem(event){
-
     const itemLi = event.target
+
     //adicionar ou remover uma data com js
     itemLi.classList.toggle("selecionado")
 
-     const itemId = event.target.dataset.id
+     const itemId = itemLi.dataset.id
      //console.log(event.target.dataset.id)
 
      // verificar se existem itens selecionados, se sim
@@ -75,11 +76,23 @@ let selectedItems = []
         })
 
      // se ja estiver selecionado, tirar da seleção
+     if(itensSelecionados >= 0){
+            //tirar da seleção
+            const itensFiltrados = selectedItems.filter(function(item){
+                const itemDiferente = item != itemId // false
+                return itemDiferente
+            })
 
-     // se não estiver selecionado, adicionar à seleção
+            selectedItems = itensFiltrados
+     }else{
+            // se não estiver selecionado, adicionar à seleção
+            selectedItems.push(itemId)
+
+     }
+
+     console.log(selectedItems)
 
      // atualizar o campo escondido(input:hidden) com os itens selecionados
 
-     
 
  }
