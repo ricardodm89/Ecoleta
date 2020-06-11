@@ -46,6 +46,7 @@ document
     .querySelector("select[name=uf]")
     .addEventListener("change", getcities )
 
+
  // itens de coleta
  // pegar todos os li´s
 
@@ -55,14 +56,30 @@ document
      item.addEventListener("click", handleSelectedItem)
  }
  
+let selectedItems = []
+
  function handleSelectedItem(event){
 
     const itemLi = event.target
     //adicionar ou remover uma data com js
     itemLi.classList.toggle("selecionado")
 
-
      const itemId = event.target.dataset.id
      //console.log(event.target.dataset.id)
+
+     // verificar se existem itens selecionados, se sim
+     // pegar os itens selecionados
+        const itensSelecionados = selectedItems.findIndex( function(item){
+            const itemFound = item == itemId // isso será true ou false
+            return itemFound
+        })
+
+     // se ja estiver selecionado, tirar da seleção
+
+     // se não estiver selecionado, adicionar à seleção
+
+     // atualizar o campo escondido(input:hidden) com os itens selecionados
+
+     
 
  }
