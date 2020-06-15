@@ -67,7 +67,7 @@ let selectedItems = []
     itemLi.classList.toggle("selecionado")
 
      const itemId = itemLi.dataset.id
-     console.log("ITEM ID: ", itemId)
+     //console.log("ITEM ID: ", itemId)
 
      // verificar se existem itens selecionados, se sim
      // pegar os itens selecionados

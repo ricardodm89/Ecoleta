@@ -67,7 +67,7 @@ module.exports = db
 
 
 //         //deletar um dado da tabela
-            // db.run(`DELETE FROM places WHERE id= ?`,[3], function(err){
+            // db.run(`DELETE FROM places WHERE id= ?`,[4], function(err){
             //     if (err) {
             //         return console.log(err)
             //     }

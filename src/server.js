@@ -36,7 +36,43 @@ server.get("/create-point", function(req, res){
 
 server.post ("/savepoint", function(req, res){
     // req.body: O corpo do  formulario
-    console.log(req.body)
+    // console.log(req.body)
+
+    // inserir dados no banco de dados
+       
+        const query = `
+            INSERT INTO places (
+                image,
+                name,
+                adress,
+                adress2,
+                state,
+                city,
+                items
+            ) VALUES (?,?,?,?,?,?,?);
+        `
+        const values = [
+            req.body.image,
+            req.body.name,
+            req.body.adress,
+            req.body.adress2,
+            req.body.state,
+            req.body.city,
+            req.body.itens
+        ]
+
+        function afterInsertData(err){
+            if (err) {
+                return console.log(err)
+            }
+
+            console.log("Cadastrado com sucesso")
+            console.log(this)
+
+            return res.render("create-point.html", {saved: true})
+        }
+
+        db.run(query, values, afterInsertData)
 
 })
 
