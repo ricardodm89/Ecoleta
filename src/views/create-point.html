@@ -105,10 +105,13 @@
     </form>
 {% endblock content %}
 
-{% if saved %}
-    {% include "partials/modal-point-created.html" %}
-{% endif %}
 
+
+   {% block modal %}
+        {% if saved %}
+            {% include "partials/modal-point-created.html" %}
+        {% endif %}
+    {% endblock modal %}
 
 
 {% block scripts %}
