@@ -7,6 +7,9 @@ const db = require("./database/db")
 // configurar pasta "public"
 server.use(express.static("public"))
 
+// habilitar o uso do req.boby na aplicação
+server.use(express.urlencoded({extended: true}))
+
 //utilizando template engine
 const nunjucks = require("nunjucks")
 nunjucks.configure("src/views",{
@@ -25,8 +28,19 @@ server.get("/", function(req, res){
 })
 
 server.get("/create-point", function(req, res){
+    // req.query: Query Strings da nossa url
+    // console.log(req.query)
+
     return res.render("create-point.html")
 })
+
+server.post ("/savepoint", function(req, res){
+    // req.body: O corpo do  formulario
+    console.log(req.body)
+
+})
+
+
 
 server.get("/search", function(req, res){
     // pegar os dados do banco de dados
@@ -35,8 +49,11 @@ server.get("/search", function(req, res){
             if (err) {
                 return console.log(err)
             }
-            // mostrar a pagina html com os dados do banco de dados
-            return res.render("search-results.html", {places: rows})
+                // contar os registros da tabela places
+                const total = rows.length
+
+                // mostrar a pagina html com os dados do banco de dados
+                return res.render("search-results.html", {places: rows, total:total})
         })
 })
 

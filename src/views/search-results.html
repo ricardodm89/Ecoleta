@@ -14,8 +14,10 @@
     {% include "partials/page-header.html" %}
 
     <main>
+    {% if total > 0 %}
+
         <h4>
-            <strong>2 pontos</strong>
+            <strong>{{total}} pontos</strong>
             encontrados
         </h4>
         <div class="cards">
@@ -23,21 +25,28 @@
             {% for place in places %}
 
             <div class="card">
-                <img src="{{place: name}}" alt="colectoria">
-                <h1>Colectoria</h2>
-                <h3>Resíduos Eletrônicos, Lâmpadas</h3>
+                <img src="{{place.image}}" alt="{{place.name}}">
+                <h1>{{place.name}}</h2>
+                <h3>{{place.items}}</h3>
                 <p>
-                    Rio do Sul, Santa Catarina
+                    {{place.city}}, {{place.state}}
                     <br/>
-                    Guilherme Gembala, Jardim América
+                    {{place.adress}}
                     <br/>
-                    N° 260
+                    {{place.adress2}}
                 </p>
             </div>
 
             {% endfor %}
 
         </div>
+
+        {%else%}
+
+        <h4><strong>Nenhum</strong> local encontrado</h4>
+
+    {% endif %}
+        
 
     </main>
 {% endblock content %}
